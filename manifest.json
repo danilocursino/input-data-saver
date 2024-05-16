@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Input Data Saver",
+  "version": "1.0",
+  "description": "Save inputs typed values to avoid losing data on reload.",
+  // "background": {
+  //   "service_worker": "scripts/background.js",
+  //   "type": "module"
+  // },
+  "action": {
+    "default_popup": "html/popup.html",
+    "default_icon": "images/icon@1x.png"
+  },
+  "author": {
+    "name": "Danilo Cursino",
+    "email": "cursinodev@gmail.com"
+  },
+  "options_page": "html/options.html",
+  "icons": {
+    "16": "images/icon@1x.png",
+    "32": "images/icon@2x.png",
+    "48": "images/icon@3x.png",
+    "128": "images/icon@8x.png"
+  },
+  "permissions": ["storage", "tabs"],
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": [
+        "https://*/*",
+        "https://*/",
+        "http://*/*",
+        "http://*/",
+        "http://localhost/*",
+        "http://127.0.0.1/*",
+        "https://localhost/*",
+        "https://127.0.0.1/*"
+      ]
+    }
+  ]
+}
